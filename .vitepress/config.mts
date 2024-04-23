@@ -33,13 +33,19 @@ export default defineConfig({
       "/interview/": [
         {
           text: "面试",
-          items: [],
+          items: [
+            { text: "java", link: "/interview/java" },
+            { text: "rocketmq", link: "/interview/rocketmq" },
+            { text: "数据库", link: "/interview/数据库" },
+            { text: "mybatis", link: "/interview/mybatis" },
+            { text: "spring", link: "/interview/spring" },
+            { text: "分布式", link: "/interview/分布式" },
+            { text: "zookeeper", link: "/interview/zookeeper" },
+          ],
         },
       ],
     },
 
-    socialLinks: [
-      { icon: "github", link: "https://github.com/cpupg" },
-    ],
+    socialLinks: [{ icon: "github", link: "https://github.com/cpupg" }],
   },
 });
