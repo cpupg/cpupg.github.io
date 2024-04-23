@@ -5,6 +5,9 @@ export default defineConfig({
   title: "cpupg的个人博客",
   description: "cpupg@github的个人博客",
   srcDir: "docs",
+  markdown: {
+    lineNumbers: true,
+  },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
