@@ -1,4 +1,4 @@
 ---
-title: gradle
+title: gradle速成
 ---
 

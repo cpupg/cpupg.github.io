@@ -27,7 +27,7 @@ export default defineConfig({
           text: "学习笔记",
           items: [
             { text: "新手上路", link: "/notebook/gradle/" },
-            { text: "基础", link: "/notebook/gradle/base" },
+            { text: "基础速成", link: "/notebook/gradle/base" },
           ],
         },
       ],
