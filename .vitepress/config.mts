@@ -9,6 +9,10 @@ export default defineConfig({
     lineNumbers: true,
   },
   themeConfig: {
+    outline: {
+      level: [1,6],
+      label: "目录",
+    },
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: "主页", link: "/" },
@@ -21,7 +25,10 @@ export default defineConfig({
       "/notebook/": [
         {
           text: "学习笔记",
-          items: [],
+          items: [
+            { text: "新手上路", link: "/notebook/gradle/" },
+            { text: "基础速成", link: "/notebook/gradle/base" },
+          ],
         },
       ],
       "/blog/": [
