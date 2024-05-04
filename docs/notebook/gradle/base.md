@@ -44,7 +44,7 @@ gradle会在当前目录创建项目，并且创建过程中不会检测当前�
 
 一个gradle项目包含一个根工程和多个子工程并通过`settings.gradle.kts`关联，每个子工程都有自己的`build.gradle.kts`。根工程可以放在项目根目录，也可以放在自己的目录。
 
-初始化完成后，就可以通过`gradle tasks`来查看可以执行的任务，如果任务名唯一，则可以直接使用任务名，如果不唯一，需要使用`插件名:任务名`的形式来调用，比如`gradlew app:build`。如果纸箱查看指定插件下的任务，可以执行`gradlew 插件名:tasks`，比如`gradlew app:tasks`。
+初始化完成后，就可以通过`gradle tasks`来查看可以执行的任务。tasks自己也是一个任务。
 
 # 任务
 
@@ -55,7 +55,7 @@ gradle build
 mvn compile
 ```
 
-当前工程里的任务可以使用`gradlew tasks`来查看，如果想查看指定插件下的任务，可以使用`gradlew tasks <插件名>:tasks`，如果想执行指定插件下的任务，可以使用`gradlew <插件名>:任务名`，如果任务名唯一，可以不加。
+当前工程里的任务可以使用`gradlew tasks`来查看。
 
 ## 自定义任务
 
@@ -139,3 +139,29 @@ toml文件中的横线在`build.gradle.kts`中要替换为`.`，比如`implement
 在引入jackson-core时也会引入jackson-core依赖树上的所有依赖，除非手动引入依赖树上的某个依赖，此时该依赖被覆盖，但是该依赖的依赖不会被覆盖。
 
 假如jar包a依赖树为a -> b -> c -> d，当我们引入a时会同时引入bcd，如果我们引入a和c，则bd依然会被引入，但c的版本是我们手动引入的版本，而不是a的依赖树上的版本。
+
+# 插件
+
+内置插件可以直接引入，其他插件需要通过`id("插件名")`引入，比如引入`maven-publish`插件，该插件可以将工程生成的jar包或其他制品发布到maven中央仓库和本地仓库。
+
+```kotlin
+id("maven-publish")
+```
+
+引入后还需要配置以下插件：
+
+```kotlin
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = "com.gradle.tutorial"
+            artifactId = "tutorial"
+            version = "1.0"
+
+            from(components["java"])
+        }
+    }
+}
+```
+
+然后执行任务`gradlew publishing`就可以将制品发布到仓库。
