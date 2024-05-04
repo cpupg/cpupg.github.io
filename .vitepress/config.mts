@@ -9,6 +9,9 @@ export default defineConfig({
     lineNumbers: true,
   },
   themeConfig: {
+    search: {
+      provider: "local",
+    },
     outline: {
       level: [1, 6],
       label: "目录",
