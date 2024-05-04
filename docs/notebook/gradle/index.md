@@ -8,6 +8,12 @@ title: 新手上路
 
 :::
 
+:::info
+
+本笔记的gradle使用kotlin语法，不使用grovvy。
+
+:::
+
 # 认识gradle
 
 gradle牛逼就完事了，什么是gradle，去看官网就行了。
