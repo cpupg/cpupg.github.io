@@ -5,6 +5,7 @@ export default defineConfig({
   title: "cpupg的个人博客",
   description: "cpupg@github的个人博客",
   srcDir: "docs",
+  lastUpdated: true,
   markdown: {
     lineNumbers: true,
   },
