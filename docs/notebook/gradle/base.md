@@ -2,6 +2,8 @@
 title: gradle速成
 ---
 
+# 执行流程
+
 和maven一样，用gradle的大概流程如下：
 
 1. 创建项目，创建项目。
@@ -44,7 +46,20 @@ gradle会在当前目录创建项目，并且创建过程中不会检测当前�
 
 初始化完成后，就可以通过`gradle tasks`来查看可以执行的任务，如果任务名唯一，则可以直接使用任务名，如果不唯一，需要使用`插件名:任务名`的形式来调用，比如`gradlew app:build`。如果纸箱查看指定插件下的任务，可以执行`gradlew 插件名:tasks`，比如`gradlew app:tasks`。
 
-# 自定义任务
+# 任务
+
+使用gradle就是执行任务的过程，就像使用maven需要目标一样：
+
+```cmd
+gradle build
+mvn compile
+```
+
+当前工程里的任务可以使用`gradlew tasks`来查看，如果想查看指定插件下的任务，可以使用`gradlew tasks <插件名>:tasks`，如果想执行指定插件下的任务，可以使用`gradlew <插件名>:任务名`，如果任务名唯一，可以不加。
+
+## 自定义任务
+
+自定义任务需要使用gradle api，例如：
 
 ```kotlin
 tasks.register<Copy>("copy-github") {
@@ -55,6 +70,8 @@ tasks.register<Copy>("copy-github") {
 ```
 
 gradle内置了一系列任务，这段代码就是使用的内置复制任务，任务会将`gradle.yml`复制到资源文件夹，注意任务名不能有空格。
+
+## 任务的前置任务
 
 任务可以有前置依赖，通过`dependsOn`定义：
 
@@ -98,3 +115,27 @@ jackson-annotation = { module = "com.fasterxml.jackson.core:jackson-annotation",
 :::tip
 
 toml文件中的横线在`build.gradle.kts`中要替换为`.`，比如`implementation(libs.jackson.core)`
+
+在国内使用gradle，建议设置仓库镜像：
+
+```kotlin
+    mavenLocal()
+    maven { setUrl("https://maven.aliyun.com/repository/public") }
+```
+
+## 依赖传递
+
+大多数引用的jar包自身会引入一些依赖，比如jackson-core的依赖：
+
+```
++--- com.fasterxml.jackson.core:jackson-core:2.17.0
+|    \--- com.fasterxml.jackson:jackson-bom:2.17.0
+|         +--- com.fasterxml.jackson.core:jackson-annotations:2.17.0 (c)
+|         +--- com.fasterxml.jackson.core:jackson-core:2.17.0 (c)
+|         \--- com.fasterxml.jackson.core:jackson-databind:2.17.0 (c)
+
+```
+
+在引入jackson-core时也会引入jackson-core依赖树上的所有依赖，除非手动引入依赖树上的某个依赖，此时该依赖被覆盖，但是该依赖的依赖不会被覆盖。
+
+假如jar包a依赖树为a -> b -> c -> d，当我们引入a时会同时引入bcd，如果我们引入a和c，则bd依然会被引入，但c的版本是我们手动引入的版本，而不是a的依赖树上的版本。

@@ -114,31 +114,27 @@ set PATH=%JAVA_HOME%\bin;%PATH%
 
 :::
 
-# 概念
+# 简介
 
 ![gradle-basic-1](https://picture-home.obs.cn-south-1.myhuaweicloud.com/markdown-picture/gradle-basic-1.png)
+
+一个gradle工程包含以下内容：
+
+- 构建脚本`build.gradle.kts`。
+- 工程设置（主要设置子模块）`settings.gradle.kts`。
+- 包装器wrapper以及版本目录`libs.version.toml`。
+
+当一个工程存在`gradlew.bat`时，这个工程就是一个gradle工程，如果是linux环境，则是`gradlew`。`gradlew`会使用warpper中指定的gradle版本，而不是本地安装的版本。推荐使用wrapper来使用gradle而不是本地版本，除非本地版本和wrapper一样。使用wrapper时，首先会检查是否已下载该版本的gradle，下载目录在量`%GRADLE_USER_HOME%/caches/版本号`下。
+
+`settings.gradle.kts`定义了子项目和根项目，根工程可以是工程目录，也可以是子目录，若工程只有一个项目，则可以不使用`settings.gradle.kts`，否则必须有`settings.gradle.kts`。
+
+
 
 当一个项目中存在`gradlew.bat`时，这个项目就是一个gradle工程。`gradlew.bat`是gradle wrapper的启动脚本使用该脚本不会使用本地安装的gradle，而会下载`wrapper/gradle/wrapper-properties`中定义的gradle版本。在gradle中，一个wrapper版本只会下载一次。
 
 gradle使用脚本来定义编译过程，每个过程都可以定义成一个任务。和maven一样，gradle也可以使用插件来增强功能，但是由于gradle中可以写脚本，因此比maven更加灵活，maven要实现增强，即使是简单的重命名jar包，也要写插件。当然，你可以编写打包脚本，在`mvn package`运行完成后手动重命名或执行其他操作。
 
-## 项目结构
-
-gradle可以是但项目也可以是单项目。使用`gradle init`可以创建多项目也可以创建单项目，之前的例子中创建的是多项目。当使用多项目时，`settings.gradle.kts`定义了子项目，否则`settings.gradle.kts`不是必须的。
-
-```kotlin
-rootProject.name = "root-project"  // 定义根目录
-
-include("sub-project-a")  // 子项目
-include("sub-project-b")  // 子项目
-include("sub-project-c")  // 子项目
-```
-
-## 构建脚本
-
-`build.gradle.kts`是构建脚本，定义了项目依赖、插件、仓库以及编译和打包过程，以及一些自定义任务，这些任务可以通过`gradle 任务名称`来执行。一次可以执行多个任务，每个任务都可以跟任务参数。
-
-可以在`build.gradle.kts`中定义依赖，并在`gradle/wrapper/libs.versions.toml`中定义依赖和插件的版本，相当于maven中的`depencediesManagment`：
+构建脚本定义了项目或子项目的依赖以及插件，每个插件都定义了多个任务，使用gradle就是执行这些任务，每个任务都可以有任务参数。依赖和插件都可以在`gradle/libs.versions.toml`中定义并在`build.gradle.kts`中引用：
 
 ```toml
 [versions]
@@ -156,8 +152,6 @@ androidApplication = { id = "com.android.application", version.ref = "androidGra
 ## 定义一系列依赖和插件
 ```
 
-注意，`libs.version.toml`中只是定义了依赖和插件，但是并不能直接使用，还需要在`build.gradle.kts`中引用：
-
 ```kotlin
 plugins {
    alias(libs.plugins.androidApplication)  
@@ -172,13 +166,5 @@ dependencies {
 }
 ```
 
-使用`libs.version.toml`可以统一管理插件、依赖以及相关的版本，你可以使用`gradlew :app:dependencies `命令来查看依赖树。
-
-## 任务
-
-gradle中的任务是一个独立的流程，可以是单独流程，也可以是组合流程，可以使用`gradle tasks`来查看当前项目可以使用的任务。执行任务时，可以直接使用任务名称执行，也可以使用`gradle 插件:任务名`执行。插件前面可以加分号也可以不加。
-
-## 插件
-
-插件有三种，一种是核心插件，一种是社区插件，一种是自己开发的定制化插件。自己开发的插件发布到社区后就成为了社区插件。
+引用时要注意，`libs.version.toml`中的下划线在`build.gradle.kts`中要改成点。
 
