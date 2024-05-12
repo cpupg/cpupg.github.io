@@ -55,7 +55,18 @@ gradle build
 mvn compile
 ```
 
-当前工程里的任务可以使用`gradlew tasks`来查看。
+当前工程里的任务可以使用`gradlew tasks`来查看，执行任务时可以加入`--console`参数来查看任务执行过程，可选值有`plain, rich,auto(default),verbose`。
+
+## 执行多个任务
+
+可以将多个任务写在一起来执行：
+
+```cmd
+gradlew clean build
+gradlew app:clean app:build
+```
+
+
 
 ## 自定义任务
 
@@ -115,6 +126,8 @@ jackson-annotation = { module = "com.fasterxml.jackson.core:jackson-annotation",
 :::tip
 
 toml文件中的横线在`build.gradle.kts`中要替换为`.`，比如`implementation(libs.jackson.core)`
+
+:::
 
 在国内使用gradle，建议设置仓库镜像：
 
