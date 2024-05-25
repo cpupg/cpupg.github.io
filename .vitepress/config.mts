@@ -35,7 +35,6 @@ export default defineConfig({
               collapsed: true,
               items: [
                 { text: "新手上路", link: "/notebook/gradle/" },
-                { text: "基础速成", link: "/notebook/gradle/base" },
               ],
             },
           ],
