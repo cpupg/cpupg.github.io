@@ -6,7 +6,7 @@
     "vitepress": "^1.1.3"
   },
   "scripts": {
-    "dev": "vitepress dev",
+    "dev": "vitepress dev --port 2001",
     "build": "vitepress build",
     "preview": "vitepress preview"
   }
