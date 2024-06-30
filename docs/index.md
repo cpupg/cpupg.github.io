@@ -4,7 +4,7 @@ layout: home
 
 hero:
   name: cpupg@github的博客
-  text: 记录我的学习历程和敲代码经历
+  text: 好记性不如烂笔头，除非非常熟练
   tagline: 学习是为了更好的编码
   actions:
     - text: 学习笔记

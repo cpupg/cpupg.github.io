@@ -23,6 +23,7 @@ export default defineConfig({
       { text: "学习笔记", link: "/notebook/" },
       { text: "技术文章", link: "/blog/" },
       { text: "面试", link: "/interview/" },
+      { text: "日常记录", link: "/daily/" },
     ],
 
     sidebar: {
@@ -33,9 +34,7 @@ export default defineConfig({
             {
               text: "gradle",
               collapsed: true,
-              items: [
-                { text: "新手上路", link: "/notebook/gradle/" },
-              ],
+              items: [{ text: "新手上路", link: "/notebook/gradle/" }],
             },
           ],
         },
@@ -58,6 +57,12 @@ export default defineConfig({
             { text: "分布式", link: "/interview/分布式" },
             { text: "zookeeper", link: "/interview/zookeeper" },
           ],
+        },
+      ],
+      "/daily/": [
+        {
+          text: "日常记录",
+          items: [{ text: "firefox", link: "/daily/firefox" }],
         },
       ],
     },
