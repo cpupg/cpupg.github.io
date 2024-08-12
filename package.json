@@ -9,5 +9,8 @@
     "dev": "vitepress dev --port 2001",
     "build": "vitepress build",
     "preview": "vitepress preview"
+  },
+  "dependencies": {
+    "cpupg-blog": "file:"
   }
 }
