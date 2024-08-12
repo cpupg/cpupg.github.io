@@ -4,13 +4,15 @@ layout: home
 
 hero:
   name: cpupg@github的博客
-  text: 好记性不如烂笔头，除非非常熟练
+  text: 好记性不如烂笔头
   tagline: 学习是为了更好的编码
   actions:
     - text: 学习笔记
       link: /notebook/
     - text: 技术文章
       link: /blog/
+    - text: 运维
+      link: /ops/
 
 # features:
 #   - title: Feature A

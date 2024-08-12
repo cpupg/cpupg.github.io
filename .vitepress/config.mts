@@ -19,11 +19,11 @@ export default defineConfig({
     },
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: "主页", link: "/" },
       { text: "学习笔记", link: "/notebook/" },
       { text: "技术文章", link: "/blog/" },
       { text: "面试", link: "/interview/" },
       { text: "日常记录", link: "/daily/" },
+      { text: "运维", link: "/ops/" },
     ],
 
     sidebar: {
@@ -64,6 +64,11 @@ export default defineConfig({
           text: "日常记录",
           items: [{ text: "firefox", link: "/daily/firefox" }],
         },
+      ],
+      "/ops":[
+        {
+          text: "运维",
+        }
       ],
     },
 
