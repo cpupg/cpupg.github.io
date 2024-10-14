@@ -19,57 +19,28 @@ export default defineConfig({
     },
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: "学习笔记", link: "/notebook/" },
-      { text: "技术文章", link: "/blog/" },
-      { text: "面试", link: "/interview/" },
-      { text: "日常记录", link: "/daily/" },
-      { text: "运维", link: "/ops/" },
+      { text: "学习笔记", link: "/notebook/gradle/" },
+      { text: "文章", link: "/article/ffmpeg" },
     ],
 
     sidebar: {
       "/notebook/": [
         {
-          text: "学习笔记",
-          items: [
-            {
-              text: "gradle",
-              collapsed: true,
-              items: [{ text: "新手上路", link: "/notebook/gradle/" }],
-            },
-          ],
+          text: "gradle",
+          collapsed: true,
+          items: [{ text: "新手速成", link: "/notebook/gradle/" }],
         },
       ],
-      "/blog/": [
+      "/article/": [
         {
-          text: "技术文章",
-          items: [],
+          text: "ffmpeg",
+          link: "/article/ffmpeg",
         },
-      ],
-      "/interview/": [
         {
-          text: "面试",
-          items: [
-            { text: "java", link: "/interview/java" },
-            { text: "rocketmq", link: "/interview/rocketmq" },
-            { text: "数据库", link: "/interview/数据库" },
-            { text: "mybatis", link: "/interview/mybatis" },
-            { text: "spring", link: "/interview/spring" },
-            { text: "分布式", link: "/interview/分布式" },
-            { text: "zookeeper", link: "/interview/zookeeper" },
-          ],
-        },
-      ],
-      "/daily/": [
-        {
-          text: "日常记录",
-          items: [{ text: "firefox", link: "/daily/firefox" }],
-        },
-      ],
-      "/ops":[
-        {
-          text: "运维",
+          text: "firefox",
+          link: "/article/firefox",
         }
-      ],
+      ]
     },
 
     socialLinks: [{ icon: "github", link: "https://github.com/cpupg" }],
