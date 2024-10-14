@@ -35,22 +35,3 @@ title: gradle速成
 可以使用腾讯镜像`https://mirrors.tencent.com/gradle/gradle-8.7-all.zip`，注意，一定要使用all，不要使用bin，否则idea会慢速下载all。
 
 如果你在内网且访问不了腾讯镜像，并且你手上有all包，那么你可以在本地起一个服务器，将gradle放在服务器根目录，然后使用`http://localhost:port/gradle-8.7-all.zip`来访问wrapper。
-
-# 添加依赖
-
-## 定义仓库镜像
-
-# 添加插件
-
-## 定义仓库镜像
-
-# 使用多模块结构
-
-## 添加子模块
-
-## 共享依赖
-
-## 共享插件
-
-## 通过插件使用springboot多模块
-
