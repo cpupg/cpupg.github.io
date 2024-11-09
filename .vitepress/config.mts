@@ -39,6 +39,10 @@ export default defineConfig({
         {
           text: "firefox",
           link: "/article/firefox",
+        },
+        {
+          text: "linux",
+          link: "/article/linux",
         }
       ]
     },
