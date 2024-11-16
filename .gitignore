@@ -1,3 +1,6 @@
 node_modules
 .vitepress/dist
 .vitepress/cache
+
+# vscode临时复制目录，定版后上传至图床
+temp
