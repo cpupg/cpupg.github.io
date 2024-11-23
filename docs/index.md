@@ -7,7 +7,7 @@ hero:
   text: 好记性不如烂笔头
   tagline: 学习是为了更好的编码
   actions:
-    - text: 技术文章
+    - text: 技术
       link: /blog/
     - text: 运维
       link: /ops/
@@ -29,29 +29,33 @@ public Class HelloWorld {
 }
 ```
 
-<!--
-```typescript
-interface Message {
-  desc: string;
-  text: string;
-}
-
-const msg: Message = {
-  desc: '信息内容',
-  text: 'hello,world'
-}
-
-console.log(msg.text);
+```javascript
+console.log('Hello, World');
 ```
--->
 
-<!--
 ```c
-#include<stdio.h>
+#include
 
-int main() {
-  printf("hello,world");
-  return 0;
+int main()
+{
+    printf("Hello, World");
+    return(0);
 }
 ```
- -->
+
+```cpp
+#include
+int main()
+{
+    std::cout << "Hello World";
+    return 0;
+}
+```
+
+```bash
+echo "hello,world.";
+```
+
+```python
+print ("Hello, World")
+```

@@ -19,7 +19,7 @@ export default defineConfig({
     },
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: "学习笔记", link: "/notebook/gradle/" },
+      { text: "笔记", link: "/notebook/gradle/" },
       { text: "文章", link: "/article/ffmpeg" },
     ],
 
