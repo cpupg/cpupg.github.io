@@ -15,17 +15,17 @@ sudo apt install postgresql-16
 
 使用`apt`安装pg后，会将pg加入开机启动:
 
-![alt text](../../../temp/image-5.png)
+![](https://picture-home.obs.cn-south-1.myhuaweicloud.com/markdown-picture/image-5.png)
 
 此外还会创建一个用户和组:
 
-![alt text](../../../temp/image-6.png)
+![](https://picture-home.obs.cn-south-1.myhuaweicloud.com/markdown-picture/image-6.png)
 
 ## 初始化
 
 安装pg后还不能立即使用，还需要使用`createdb`命令创建数据库:
 
-![alt text](../../../temp/image-8.png)
+![](https://picture-home.obs.cn-south-1.myhuaweicloud.com/markdown-picture/image-8.png)
 
 为了方便日后管理，在运行这个命令以前你需要考虑以下内容，并且在运行前就已经有答案:
 
@@ -80,26 +80,26 @@ pg支持两种方式启动，一种是`postgres`命令，一种是`pg_ctl`命令
 
 在命令行运行：
 
-![alt text](../../../temp/image-9.png)
+![](https://picture-home.obs.cn-south-1.myhuaweicloud.com/markdown-picture/image-9.png)
 
 
 ## 修改认证方式和防火墙
 
 默认情况下pg只允许当前机器连接，因此需要修改配置来让其他机器也可以连接，通常是使用网段配置，配置文件是`pg_hba.conf`，将ipv4 local connections改为下面的内容：
 
-![alt text](../../../temp/image-11.png)
+![](https://picture-home.obs.cn-south-1.myhuaweicloud.com/markdown-picture/image-11.png)
 
 之后修改防火墙，放行端口，下图是允许局域网访问5432端口：
 
-![alt text](../../../temp/image-12.png)
+![](https://picture-home.obs.cn-south-1.myhuaweicloud.com/markdown-picture/image-12.png)
 
 在datagrip中连接成功：
 
-![alt text](../../../temp/image-13.png)
+![](https://picture-home.obs.cn-south-1.myhuaweicloud.com/markdown-picture/image-13.png)
 
 此外还要修改监听地址：
 
-![alt text](../../../temp/image-14.png)
+![](https://picture-home.obs.cn-south-1.myhuaweicloud.com/markdown-picture/image-14.png)
 
 监听地址有以下特殊格式：
 
@@ -115,7 +115,7 @@ pg支持两种方式启动，一种是`postgres`命令，一种是`pg_ctl`命令
 
 将上面的启动命令写入`postgresql.service`时，服务会报错
 
-![](/temp/image-10.png)
+![](https://picture-home.obs.cn-south-1.myhuaweicloud.com/markdown-picture/image-10.png)
 
 此时pg已经跑起来了，但是不知道为什么服务会说已经存在pid xxx，也就是说pg启动了两次。我暂时还没有找到解决方案，因此写了启动脚本来手动启动。
 
