@@ -89,15 +89,11 @@ pg支持两种方式启动，一种是`postgres`命令，一种是`pg_ctl`命令
 
 ![](https://picture-home.obs.cn-south-1.myhuaweicloud.com/markdown-picture/image-11.png)
 
-之后修改防火墙，放行端口，下图是允许局域网访问5432端口：
+之后修改防火墙，放行端口，下图是允许局域网访问5432端口，注意使用ufw前首先要启用ufw，命令是`ufw enable`。
 
 ![](https://picture-home.obs.cn-south-1.myhuaweicloud.com/markdown-picture/image-12.png)
 
-在datagrip中连接成功：
-
-![](https://picture-home.obs.cn-south-1.myhuaweicloud.com/markdown-picture/image-13.png)
-
-此外还要修改监听地址：
+此外还要修改`postgresql.conf`中的监听地址：
 
 ![](https://picture-home.obs.cn-south-1.myhuaweicloud.com/markdown-picture/image-14.png)
 
@@ -108,6 +104,14 @@ pg支持两种方式启动，一种是`postgres`命令，一种是`pg_ctl`命令
 - `::`: 监听所有ipv6地址。
 
 监听地址用逗号分隔，如果不配置或者配置为空，则只允许本地连接，不允许其他机器连接。
+
+在datagrip中连接成功：
+
+![](https://picture-home.obs.cn-south-1.myhuaweicloud.com/markdown-picture/image-13.png)
+
+如果报错`User "postgres" has no password assigned.`，需要在psql中设置密码：
+
+![](https://picture-home.obs.cn-south-1.myhuaweicloud.com/markdown-picture/image-1.png)
 
 ## 问题记录
 

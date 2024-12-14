@@ -6,6 +6,24 @@ ubuntu启动会等待网络配置，如果没有配置网络，就会提示`A st
 
 编辑`/etc/netplan/00-installer-config.yaml`：
 
+```yml
+network:
+  ethernets:
+    ens33:
+      addresses:
+        - 192.168.1.23/24
+      nameservers:
+        addresses:
+        - 223.4.4.4
+        - 223.5.5.5
+        search: []
+      routes:
+      - to: default
+        via: 192.168.1.1
+  version: 2
+```
+
+
 ![](https://picture-home.obs.cn-south-1.myhuaweicloud.com/markdown-picture/20241114231038.png)
 
 # 修改时区
