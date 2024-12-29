@@ -75,7 +75,7 @@ pg支持两种方式启动，一种是`postgres`命令，一种是`pg_ctl`命令
 ```bash
 /usr/lib/postgresql/16/bin/pg_ctl start -l /etc/postgresql/16/main/logs/pg.log -D /var/lib/postgresql/16/main -o "-c config_file=/etc/postgresql/16/main/postgresql.conf" -o "-c hba_file=/etc/postgresql/16/main/pg_hba.conf" -o "-c ident_file=/etc/postgresql/16/main/pg_ident.conf"
 /usr/lib/postgresql/16/bin/pg_ctl stop -l /etc/postgresql/16/main/logs/pg.log -D /var/lib/postgresql/16/main -o "-c config_file=/etc/postgresql/16/main/postgresql.conf" -o "-c hba_file=/etc/postgresql/16/main/pg_hba.conf" -o "-c ident_file=/etc/postgresql/16/main/pg_ident.conf"
-/usr/lib/postgresql/16/bin/pg_ctl restart -D /var/lib/postgresql/16/main -o "-c config_file=/etc/postgresql/16/main/postgresql.conf" -o "-c hba_file=/etc/postgresql/16/main/pg_hba.conf" -o "-c ident_file=/etc/postgresql/16/main/pg_ident.conf"
+/usr/lib/postgresql/16/bin/pg_ctl restart -l /etc/postgresql/16/main/logs/pg.log -D /var/lib/postgresql/16/main -o "-c config_file=/etc/postgresql/16/main/postgresql.conf" -o "-c hba_file=/etc/postgresql/16/main/pg_hba.conf" -o "-c ident_file=/etc/postgresql/16/main/pg_ident.conf"
 ```
 
 在命令行运行：

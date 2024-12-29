@@ -5,7 +5,7 @@
 需要提前安装pgsql并创建专用于sonarqube的数据库和用户，这个用户需要有增删改查权限：
 
 ```sql
-createuser sonar_user;
+create user sonar_user;
 ROLE sonar_user PASSWORD 'passwd';
 ```
 
@@ -36,6 +36,12 @@ grant usage on schema sonar_s to sonar_user;
 ALTER USER sonar_user SET search_path to sonar_s;
 ```
 
+默认情况下创建的模式的拥有者是`postgres`，所以需要赋权，可以使用下面的sql在创建模式时指定拥有者：
+
+```sql
+create schema sonar_s authorization sonar_user;
+```
+
 
 ## elasticsearch
 
@@ -52,6 +58,8 @@ fs.file-max=131072
 sonarqube   -   nofile   131072
 sonarqube   -   nproc    8192
 ```
+
+这一步中，文件路径和文件内容中的sonarqube要替换为运行soanrqube的用户名。
 
 ## 启动
 
