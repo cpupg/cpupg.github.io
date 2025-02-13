@@ -9,7 +9,7 @@ create user sonar_user;
 ROLE sonar_user PASSWORD 'passwd';
 ```
 
-![alt text](../../../temp/image.png)
+![](https://picture-home.obs.cn-south-1.myhuaweicloud.com/markdown-picture/image.png)
 
 
 然后创建数据库：
