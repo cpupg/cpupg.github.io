@@ -41,7 +41,7 @@ export default defineConfig({
           link: "/article/firefox",
         },
         {
-          text: "linux",
+          text: "运维",
           link: "/article/linux",
         }
       ]

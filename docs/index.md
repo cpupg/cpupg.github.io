@@ -6,11 +6,11 @@ hero:
   name: cpupg@github的博客
   text: 好记性不如烂笔头
   tagline: 学习是为了更好的编码
-  actions:
-    - text: 技术
-      link: /blog/
-    - text: 运维
-      link: /ops/
+  # actions:
+  #   - text: 学习笔记
+  #     link: /notebook/gradle/
+  #   - text: 运维
+  #     link: /article/linux
 
 # features:
 #   - title: Feature A
