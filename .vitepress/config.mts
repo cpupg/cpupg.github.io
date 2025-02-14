@@ -20,7 +20,7 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: "笔记", link: "/notebook/gradle/" },
-      { text: "文章", link: "/article/ffmpeg" },
+      { text: "文章", link: "/article/" },
     ],
 
     sidebar: {
@@ -31,20 +31,6 @@ export default defineConfig({
           items: [{ text: "新手速成", link: "/notebook/gradle/" }],
         },
       ],
-      "/article/": [
-        {
-          text: "ffmpeg",
-          link: "/article/ffmpeg",
-        },
-        {
-          text: "firefox",
-          link: "/article/firefox",
-        },
-        {
-          text: "运维",
-          link: "/article/linux",
-        }
-      ]
     },
 
     socialLinks: [{ icon: "github", link: "https://github.com/cpupg" }],
