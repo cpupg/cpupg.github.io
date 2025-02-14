@@ -28,7 +28,7 @@ export default defineConfig({
         {
           text: "gradle",
           collapsed: true,
-          items: [{ text: "新手速成", link: "/notebook/gradle/" }],
+          items: [{ text: "hello world", link: "/notebook/gradle/" }],
         },
       ],
     },

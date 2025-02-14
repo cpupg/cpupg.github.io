@@ -1,5 +1,5 @@
 ---
-title: gradle速成
+title: hello world
 ---
 
 # 创建项目
@@ -30,15 +30,15 @@ title: gradle速成
 
 在创建过程中，gradle会提示选择jdk版本，选择后会在`build.gradle`中添加jdk工具链插件。我们选择`application`类型的项目。
 
-## 打开项目前的准备
+# 打开项目前的准备
 
-### 修改wrapper地址
+## 修改wrapper地址
 
 可以使用腾讯镜像`https://mirrors.tencent.com/gradle/gradle-8.7-all.zip`，注意，一定要使用all，不要使用bin，否则idea会慢速下载all。
 
 如果你在内网且访问不了腾讯镜像，并且你手上有all包，那么你可以在本地起一个服务器，将gradle放在服务器根目录，然后使用`http://localhost:port/gradle-8.7-all.zip`来访问wrapper。
 
-### 去掉工具链和依赖
+## 去掉工具链和依赖
 
 默认生成的项目在`/settings.gradle`中增加了`foojay`工具链，我们先去掉它：
 
@@ -126,6 +126,8 @@ tasks.named('test') {
     useJUnitPlatform()
 }
 ```
+
+# 运行项目
 
 运行`gradlew build`编译项目，运行`gradlew app:run`运行项目，`gradlew app:test`测试项目：
 
